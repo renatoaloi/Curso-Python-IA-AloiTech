@@ -21,7 +21,7 @@ Durante nosso projeto prático, você aprenderá a criar do zero:
 ## 📂 Estrutura do Curso
 *(Os códigos-fonte serão adicionados neste repositório conforme as aulas forem ao ar)*
 - `/Aula_01_Introducao`
-- `/Aula_02_Ambiente_e_Bugs` (Em breve)
+- `/aulas/aula_02_primeiros_passos` - Ambiente e Primeiros Passos
 - `/Aula_03_Whisper_Pydub` (Em breve)
 
 ## ⚖️ Licença
