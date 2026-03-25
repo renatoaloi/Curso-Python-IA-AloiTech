@@ -22,7 +22,7 @@ Durante nosso projeto prático, você aprenderá a criar do zero:
 *(Os códigos-fonte serão adicionados neste repositório conforme as aulas forem ao ar)*
 - `/Aula_01_Introducao`
 - `/aulas/aula_02_primeiros_passos` - Ambiente e Primeiros Passos
-- `/Aula_03_Whisper_Pydub` (Em breve)
+- `/aulas/aula_03_transcricao_whisper` - Extraindo Áudio e Transcrição com Whisper
 
 ## ⚖️ Licença
 Este projeto, seus scripts e ideias estão sob a licença **MIT**.
