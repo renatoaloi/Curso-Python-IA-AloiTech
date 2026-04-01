@@ -25,3 +25,6 @@ Thumbs.db
 # Arquivos Privados do Curso (AloiTech)
 # ========================
 docs/
+
+.agent/
+scripts/
