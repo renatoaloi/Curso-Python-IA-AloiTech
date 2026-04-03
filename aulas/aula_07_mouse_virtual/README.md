@@ -27,7 +27,8 @@ Nesta aula, aprendemos a criar um "Mouse Virtual" que funciona sem toque físico
 1. Antes de iniciar, recomendamos que abra a pasta no terminal e ative o seu próprio ambiente virtual isolado (`venv`).
 2. Tendo seu ambiente preparado, instale as dependências usando os pacotes Python:
    ```bash
-   pip install opencv-python mediapipe pyautogui
+   pip install opencv-python pyautogui
+   pip install mediapipe==0.10.14
    ```
 3. *(Apenas para Windows)* Caso tenha múltiplas câmeras e desejar listar os índices corretamente para substituir dentro dos códigos listados abaixo antes de iniciar. Instale o pacote adicional:
    ```bash
