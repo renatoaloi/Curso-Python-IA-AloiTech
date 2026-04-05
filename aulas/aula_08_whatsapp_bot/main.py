@@ -9,51 +9,75 @@ from config import FRIEND_NAME, INITIAL_GREETING
 console = Console()
 
 def main():
+    console.print(Panel.fit("🤖 Bot de Atendimento WhatsApp (MVP)", style="bold blue"))
+    
     bot = WhatsAppBot(FRIEND_NAME)
     
     try:
-        console.print(Panel("[bold green]Iniciando conexão com o WhatsApp...[/bold green]", title="WhatsAloi", border_style="green"))
         bot.open_whatsapp()
-        bot.find_contact()
         
-        # Envia mensagem inicial se for o primeiro acesso
-        console.print(Panel(INITIAL_GREETING, title="Mensagem Inicial", border_style="cyan"))
+        # Inicia a conversa
+        bot.find_contact()
         bot.send_message(INITIAL_GREETING)
         
-        console.print(Panel("[bold yellow]Aguardando resposta...[/bold yellow]", title="Status", border_style="yellow"))
-        
         while True:
-            # Espera um tempo razoável antes de verificar novamente
-            time.sleep(5)
+            console.print("\n[bold yellow]Menu de Comando:[/bold yellow]")
+            console.print("1. [green]Ler Histórico e Gerar Sugestões[/green]")
+            console.print("2. [red]Encerrar[/red]")
             
-            # Lê as últimas mensagens (limitado a 10 para não poluir)
-            history = bot.get_chat_history(limit=10)
+            choice = Prompt.ask("Escolha uma opção", choices=["1", "2"], default="1")
             
-            # Gera sugestões baseadas no histórico
-            ai_response = generate_response_options(history)
+            if choice == "2":
+                break
             
-            if "error" in ai_response:
-                console.print(f"[red]Erro: {ai_response['error']}[/red]")
+            qtde_msg = Prompt.ask("Quantas mensagens recentes ler para análise?", default="5")
+
+            # Lê o chat
+            console.print("Lendo as mensagens recentes...")
+            history = bot.get_chat_history(int(qtde_msg))
+            if not history:
+                console.print("[red]Erro: Não foi possível ler as mensagens.[/red]")
                 continue
                 
-            suggestions = ai_response.get("sugestoes", [])
+            console.print(Panel(f"[bold green]Histórico Lido:[/bold green]\n{history}"))
             
-            # Exibe as sugestões de forma organizada
-            console.print(Panel("\n".join(suggestions), title="Sugestões da IA", border_style="green"))
+            # Gera sugestões
+            with console.status("IA Pensando nas sugestões..."):
+                result = generate_response_options(history)
             
-            # Pergunta ao usuário o que fazer
-            user_input = Prompt.ask(
-                "\n[bold yellow]Sua resposta (ou digite para customizar)[/bold yellow]",
-                default=suggestions[0] if suggestions else ""
-            )
+            if "error" in result:
+                console.print(f"[red]{result['error']}[/red]")
+                continue
+                
+            console.print(f"[bold magenta]Análise de Humor:[/bold magenta] {result.get('analise_humor', 'N/A')}")
             
-            # Envia a resposta escolhida/digitada
-            bot.send_message(user_input)
+            # Menu de Sugestões
+            sugestoes = result.get('sugestoes', [])
+            for i, s in enumerate(sugestoes, 1):
+                console.print(f"{i}. {s}")
+            console.print("4. [yellow]Escrever Mensagem Customizada[/yellow]")
+            console.print("5. [blue]Voltar[/blue]")
             
+            sub_choice = Prompt.ask("O que deseja fazer?", choices=["1", "2", "3", "4", "5"], default="1")
+            
+            if sub_choice == "5":
+                continue
+                
+            msg_to_send = ""
+            if sub_choice == "4":
+                msg_to_send = Prompt.ask("Sua mensagem")
+            elif sub_choice in ["1", "2", "3"]:
+                msg_to_send = sugestoes[int(sub_choice)-1]
+            
+            if msg_to_send:
+                bot.send_message(msg_to_send)
+                console.print(f"[bold green]Mensagem enviada com sucesso:[/bold green] {msg_to_send}")
+
     except Exception as e:
-        console.print(f"[bold red]Erro crítico: {e}[/bold red]")
+        console.print(f"[bold red]Erro fatal na orquestração:[/bold red] {str(e)}")
     finally:
         bot.close()
+        console.print("[bold red]Bot finalizado.[/bold red]")
 
 if __name__ == "__main__":
     main()

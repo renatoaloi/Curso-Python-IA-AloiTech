@@ -1,7 +1,7 @@
 import os
 
 # Nome do contato ou grupo para o teste
-FRIEND_NAME = "Hermes Canuto"
+FRIEND_NAME = "Nome do Contato"
 
 # Configurações da API (Ollama usa a porta 11434 por padrão)
 LLM_API_URL = "http://localhost:11434/api/generate"
