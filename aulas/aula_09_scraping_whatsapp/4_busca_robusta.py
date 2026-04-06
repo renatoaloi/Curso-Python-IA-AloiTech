@@ -17,9 +17,7 @@ SEARCH_BOX_XPATH = "//input[@aria-label='Pesquisar ou começar uma nova conversa
 SELECT_CONTACT_XPATH = "//span[contains(@class, 'matched-text')]"
 
 VERIFYING_XPATH_PAI = "//*[@id='pane-side']/div/div/div"
-VERIFYING_XPATH_INICIAL = "//*[@id='pane-side']/div/div/div/div["
-VERIFYING_XPATH_FINAL = "]/div/div/div/div[2]/div[1]/div[1]/div/div/span"
-VERIFYING_XPATH_FINAL_GROUP = "]/div/div/div/div[2]/div[1]/div[1]/div/div[1]/span"
+VERIFYING_XPATH_BUSCA = "./descendant::span[contains(@class, 'matched-text')]"
 
 def main():
     try:
@@ -40,37 +38,28 @@ def main():
 
         search_box = driver.find_element(webdriver.common.by.By.XPATH, SEARCH_BOX_XPATH)
         search_box.click()
-        search_box.send_keys(webdriver.common.keys.Keys.CONTROL + "a")
-        search_box.send_keys(webdriver.common.keys.Keys.BACKSPACE)
         time.sleep(0.5)
         for c in CONTACT_NAME:
             search_box.send_keys(c)
             time.sleep(0.1)
+        search_box.send_keys(webdriver.common.keys.Keys.ENTER)
         time.sleep(1)
 
         pai = driver.find_element(webdriver.common.by.By.XPATH, VERIFYING_XPATH_PAI)
-        filhos = pai.find_elements(webdriver.common.by.By.XPATH, "./div")
-        for i, filho in enumerate(filhos):
-            if i == 0:
-                continue
-            try:
-                contact_to_select = driver.find_element(
-                    webdriver.common.by.By.XPATH, 
-                    VERIFYING_XPATH_INICIAL + str(i+1) + VERIFYING_XPATH_FINAL
-                )
-            except:
-                contact_to_select = driver.find_element(
-                    webdriver.common.by.By.XPATH, 
-                    VERIFYING_XPATH_INICIAL + str(i+1) + VERIFYING_XPATH_FINAL_GROUP
-                )
-            print(contact_to_select.text)
-            if contact_to_select.text.lower() == CONTACT_NAME.lower():
-                print("Contato encontrado!")
-                driver.execute_script("arguments[0].scrollIntoView(true);", contact_to_select)
+        filhos = pai.find_elements(webdriver.common.by.By.XPATH, VERIFYING_XPATH_BUSCA)
+        found = False
+        for contact_to_select in filhos:
+            contact = contact_to_select.find_element(webdriver.common.by.By.XPATH, "..")
+            if contact.text.lower() == CONTACT_NAME.lower():
+                print(f"Contato {CONTACT_NAME} encontrado!")
+                driver.execute_script("arguments[0].scrollIntoView(true);", contact)
                 time.sleep(1)
-                contact_to_select.click()
+                contact.click()
+                found = True
                 break
-            time.sleep(1)
+
+        if not found:
+            print(f"Contato {CONTACT_NAME} não encontrado na lista de resultados da busca.")
 
     except Exception as e:
         print(f"Erro ao raspar o Whatsapp Web: {e}")
