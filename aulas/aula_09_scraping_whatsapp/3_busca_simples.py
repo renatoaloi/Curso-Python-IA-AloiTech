@@ -14,7 +14,6 @@ CHROME_PROFILE_PATH = os.path.abspath("chrome_profile")
 ELEMENT_TO_WAIT = "//div[@id='pane-side']"
 WAIT_TIME = 120 # 2 minutos
 SEARCH_BOX_XPATH = "//input[@aria-label='Pesquisar ou começar uma nova conversa']"
-SELECT_CONTACT_XPATH = "//span[contains(@class, 'matched-text')]"
 
 def main():
     try:
@@ -35,16 +34,12 @@ def main():
 
         search_box = driver.find_element(webdriver.common.by.By.XPATH, SEARCH_BOX_XPATH)
         search_box.click()
-        search_box.send_keys(webdriver.common.keys.Keys.CONTROL + "a")
-        search_box.send_keys(webdriver.common.keys.Keys.BACKSPACE)
         time.sleep(0.5)
         for c in CONTACT_NAME:
             search_box.send_keys(c)
             time.sleep(0.1)
         time.sleep(1)
-
-        contact_to_select = driver.find_element(webdriver.common.by.By.XPATH, SELECT_CONTACT_XPATH)
-        contact_to_select.click()
+        search_box.send_keys(webdriver.common.keys.Keys.ENTER)
         time.sleep(1)
 
     except Exception as e:
