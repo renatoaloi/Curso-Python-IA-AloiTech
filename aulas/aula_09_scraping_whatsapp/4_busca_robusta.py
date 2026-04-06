@@ -33,7 +33,7 @@ def main():
         print("Aguardando elemento do Whatsapp Web ficar visível...")
         wait = WebDriverWait(driver, WAIT_TIME)
         wait.until(EC.presence_of_element_located((
-            webdriver.common.by.By.By.XPATH, 
+            webdriver.common.by.By.XPATH, 
             ELEMENT_TO_WAIT
         )))
         print("Elemento do Whatsapp Web visível!")
