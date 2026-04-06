@@ -14,8 +14,6 @@ CHROME_PROFILE_PATH = os.path.abspath("chrome_profile")
 ELEMENT_TO_WAIT = "//div[@id='pane-side']"
 WAIT_TIME = 120 # 2 minutos
 SEARCH_BOX_XPATH = "//input[@aria-label='Pesquisar ou começar uma nova conversa']"
-SELECT_CONTACT_XPATH = "//span[contains(@class, 'matched-text')]"
-
 VERIFYING_XPATH_PAI = "//*[@id='pane-side']/div/div/div"
 VERIFYING_XPATH_BUSCA = "./descendant::span[contains(@class, 'matched-text')]"
 
