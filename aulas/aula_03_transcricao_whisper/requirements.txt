@@ -1,0 +1,15 @@
+# Aula 03 - Transcrição de Áudio com Whisper
+# Instale com: pip install -r requirements.txt
+#
+# ATENÇÃO: O FFmpeg deve ser instalado separadamente no sistema operacional.
+# Veja: https://ffmpeg.org/download.html
+
+# IA de transcrição de fala da OpenAI
+openai-whisper
+
+# PyTorch - necessário para rodar os modelos do Whisper
+# Versão CPU (funciona em qualquer máquina):
+torch
+
+# Dependência de áudio do PyTorch (necessária pelo Whisper)
+torchaudio
