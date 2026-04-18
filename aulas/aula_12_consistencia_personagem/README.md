@@ -30,6 +30,20 @@ Os modelos não vêm com o ComfyUI, você precisa baixar os arquivos (geralmente
 
 Reinicie o ComfyUI. Agora você verá o botão **"Manager"** no menu lateral.
 
+## Conteúdo Bônus - O que instalar?
+
+1. No Manager, procure por **"Auxiliary"** e instale o **ComfyUI-ControlnetAux** (ID 1324).
+2. No Manager, procure também por **"DWPose"** e instale o **ComfyUI-DWPose** (ou **ComfyUI_DWPoseDeluxe**). Ele é o nó especializado para capturar a pose com precisão.
+3. **MUITO IMPORTANTE:** Após a instalação, você precisa fechar o terminal (a janela preta) do ComfyUI e abrir de novo. Apenas dar F5 no navegador não funciona para novos nós.
+
+## Download do Modelo de Controle (Mandatório):
+
+Além dos nós, você precisa baixar o "cérebro" do OpenPose para SDXL:
+
+| Arquivo                               | Pasta Destino        | Link                                                                                                                     |
+| ------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `diffusion_pytorch_model.safetensors` | `models/controlnet/` | [Hugging Face](https://huggingface.co/xinsir/controlnet-openpose-sdxl-1.0/blob/main/diffusion_pytorch_model.safetensors) |
+
 ## 🎯 O que foi visto:
 
 1. **PuLID**: Técnica avançada para "travar" a identidade facial a partir de uma foto de referência.
