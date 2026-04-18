@@ -18,6 +18,16 @@ O PuLID depende da biblioteca `insightface`. No terminal, dentro da pasta do Com
 pip install insightface
 ```
 
+## Onde baixar e colocar os modelos (Hugging Face)
+
+Os modelos não vêm com o ComfyUI, você precisa baixar os arquivos (geralmente `.safetensors` ou `.pt`) nos links abaixo e colar nas pastas corretas.
+
+- **Eva CLIP:** Baixe o arquivo `EVA02_CLIP_L_336_psz14_s6B.pt` ([Link Oficial no Hugging Face](https://huggingface.co/QuanSun/EVA-CLIP/tree/main)) e coloque em `models/clip_vision/` (usado apenas pelo PuLID).
+- **PuLID Model (Formato IP-Adapter):** O nó oficial do ComfyUI requer uma versão específica do modelo formatada como IP-Adapter. Baixe o arquivo **`ip-adapter_pulid_sdxl_fp16.safetensors`** ([Link Oficial no Hugging Face do Huchenlei](https://huggingface.co/huchenlei/ipadapter_pulid/tree/main)) e coloque na pasta `models/pulid/`.
+- **IP-Adapter Models & Vision:** Para o estilo funcionar, você precisa de DOIS arquivos:
+  1. O modelo IP-Adapter base SDXL (ex: `ip-adapter-plus_sdxl_vit-h.safetensors`) salvo em `models/ipadapter/`.
+  2. O interpretador de visão **`CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors`** (renomeie o `model.safetensors` do [Hugging Face h94](https://huggingface.co/h94/IP-Adapter/tree/main/models/image_encoder)) e salve na pasta `models/clip_vision/` ao lado do Eva CLIP. O IP-Adapter não funciona sem ele!
+
 Reinicie o ComfyUI. Agora você verá o botão **"Manager"** no menu lateral.
 
 ## 🎯 O que foi visto:
