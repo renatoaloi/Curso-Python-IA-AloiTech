@@ -2,12 +2,20 @@
 
 Nesta aula, aprendemos a manter o rosto de um personagem fixo em diferentes cenas e estilos usando as ferramentas **PuLID** e **IP-Adapter** dentro do ComfyUI.
 
-## 1 Instalando o Manager
+## Instalando o Manager
 
 Abra o terminal na pasta `ComfyUI/custom_nodes` e execute:
 
 ```bash
 git clone https://github.com/ltdrdata/ComfyUI-Manager.git
+```
+
+## Novos Pacotes Python (InsightFace)
+
+O PuLID depende da biblioteca `insightface`. No terminal, dentro da pasta do ComfyUI e com seu **venv ativado**, rode:
+
+```bash
+pip install insightface
 ```
 
 Reinicie o ComfyUI. Agora você verá o botão **"Manager"** no menu lateral.
