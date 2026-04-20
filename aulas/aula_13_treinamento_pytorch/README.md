@@ -1,15 +1,19 @@
 # Aula 13 - Treinando sua própria IA (PyTorch)
 
-Nesta aula, mergulhamos no mundo do Deep Learning para entender como as redes neurais "aprendem". Construímos um classificador de sentimentos real para comentários do YouTube, saindo da teoria e indo para a prática com PyTorch.
+Eu sei que você já assistiu dezenas de vídeos ensinando como funcionam as Redes Neurais Artificiais (RNA's), mostrando aqueles desenhos de neurônios com setinhas pra lá e pra cá, mas hoje vamos colocar a mão na massa e vou mostrar para vocês, através de gráficos cuidadosamente elaborados, o que está acontecendo dentro de uma rede neural enquanto ela funciona. Vamos levantar o capô e ver a mágica acontecendo!
+
+Então nessa aula vamos mergulhar no mundo do Deep Learning para entender como as redes neurais realmente "aprendem". Vou apresentar para vocês o "Dilema do Caixeiro Viajante" e como podemos resolver isso com IA.
+
+Vem comigo e vamos aprender juntos como funcionam as caraminholas dentro da cabeça da IA!
 
 ## 🛠️ Requisitos e Instalação
 
-Para acompanhar esta aula e rodar os scripts, você precisa instalar as bibliotecas **PyTorch** e **Pandas**. 
+Para acompanhar esta aula e rodar os scripts, você precisa instalar a biblioteca **PyTorch**.
 
 Abra o terminal e execute:
 
 ```bash
-pip install torch pandas
+pip install torch
 ```
 
 > [!NOTE]
@@ -17,23 +21,23 @@ pip install torch pandas
 
 ## 📂 Arquivos da Aula
 
-1. `1_tensores_basico.py`: O que são Tensores (Escalares, Vetores, Matrizes e Cubos) e como a matemática da IA funciona.
-2. `2_hello_world_ia.py`: O "Hello World" das redes neurais. Ensinando uma porta lógica OR para entender como a IA aprende do zero.
-3. `3_preparacao_dados.py`: Como carregar o CSV e preparar o texto para a rede neural.
-4. `4_modelo_e_treino.py`: Onde criamos a arquitetura da rede e realizamos o treinamento.
-5. `5_testar_ia.py`: Script para você testar a sua IA treinada com novas frases.
-6. `comentarios_videos.csv`: Nosso dataset real de treinamento.
+O aprendizado é progressivo, siga a ordem dos scripts:
+
+1. `1_tensores_basico.py`: O que são Tensores (Átomos da IA) e como a matemática fundamental funciona.
+2. `2_hello_world_ia.py`: O "Nascimento" do neurônio. Ensinamos a lógica OR para entender o loop de treinamento.
+3. `3_problema_XOR.py`: O desafio clássico. Como camadas ocultas permitem que a IA aprenda problemas não-lineares.
+4. `4_caixeiro_viajante.py`: Projeto Final. Usamos Latitude e Longitude para criar um classificador de área de atendimento de delivery.
 
 ## 🎯 O que aprendemos:
 
-1. **Estrutura de Tensores**: A base numérica de toda Inteligência Artificial.
-2. **Matemática da IA**: O conceito intuitivo de Pesos (Weights), Vieses (Bias) e Ativação.
-3. **Pipeline de Dados**: Transformando texto em números através do "Bag of Words".
-4. **Treinamento**: O loop de ajuste onde a IA aprende com seus próprios erros (Loss e Optimization).
+1. **Estrutura de Tensores**: Escalares, Vetores, Matrizes e a eficiência computacional.
+2. **Matemática da IA**: O segredo da fórmula $y = wx + b$.
+3. **Camadas Ocultas**: Por que redes profundas são necessárias para a complexidade do mundo real.
+4. **Treinamento Geográfico**: Como preparar coordenadas (Lat/Long) para que a IA aprenda a decidir territórios.
 
 ## 🚀 Desafio Prático
 
-Tente abrir o arquivo `comentarios_videos.csv` e adicionar mais 10 frases (5 positivas e 5 negativas). Depois, rode o script `4_modelo_e_treino.py` novamente e veja se a precisão da sua IA no script `5_testar_ia.py` melhorou!
+No script `4_caixeiro_viajante.py`, tente adicionar novas coordenadas de treinamento no Tensor `X` e suas respectivas respostas no Tensor `y`. Treine novamente a rede e veja se ela se torna mais precisa ao testar novos pontos na cidade!
 
 ---
 
