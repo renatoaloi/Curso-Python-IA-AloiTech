@@ -1,6 +1,18 @@
 import torch
 
 # Aula 13.1: Entendendo Tensores (Os átomos da IA)
+#
+# Um Tensor é a unidade fundamental de dados no Deep Learning. 
+# Pense neles como "Containers Inteligentes" de números.
+# Enquanto uma lista do Python é apenas uma gaveta de valores, 
+# um Tensor é uma estrutura otimizada que pode ser processada 
+# milhares de vezes mais rápido por uma GPU (Placa de Vídeo).
+#
+# Eles podem ter várias dimensões:
+# - 0D (Escalar): Um único número (Ex: o preço de uma casa)
+# - 1D (Vetor): Uma lista de números (Ex: histórico de preços)
+# - 2D (Matriz): Uma tabela (Ex: pixels de uma foto em P&B)
+# - 3D (Cubo): Um empilhamento de tabelas (Ex: uma foto colorida RGB)
 
 # 1. Criando um tensor simples (Escalar)
 item = torch.tensor(13.0)

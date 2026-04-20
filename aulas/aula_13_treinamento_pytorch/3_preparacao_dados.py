@@ -3,7 +3,7 @@ import pandas as pd
 from torch.utils.data import Dataset, DataLoader
 from collections import Counter
 
-# Aula 13.2: O Pipeline de Dados (De Texto para Números)
+# Aula 13.3: O Pipeline de Dados (De Texto para Números)
 
 # 1. Carregando o Dataset Real (CSV)
 df = pd.read_csv("comentarios_videos.csv")

@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-# Aula 13.4: Testando sua IA Treinada (Inferência)
+# Aula 13.5: Testando sua IA Treinada (Inferência)
 
 # 1. Definindo a mesma arquitetura
 class ClassificadorTexto(nn.Module):

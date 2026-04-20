@@ -5,7 +5,7 @@ import pandas as pd
 from torch.utils.data import Dataset, DataLoader
 from collections import Counter
 
-# Aula 13.3: Arquitetura e Treinamento (A Mágica)
+# Aula 13.4: Arquitetura e Treinamento (A Mágica)
 
 # --- REPETINDO PREPARAÇÃO (Para o script ser independente) ---
 df = pd.read_csv("comentarios_videos.csv")

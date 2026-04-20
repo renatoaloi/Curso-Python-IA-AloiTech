@@ -18,10 +18,11 @@ pip install torch pandas
 ## 📂 Arquivos da Aula
 
 1. `1_tensores_basico.py`: O que são Tensores (Escalares, Vetores, Matrizes e Cubos) e como a matemática da IA funciona.
-2. `2_preparacao_dados.py`: Como carregar o CSV e preparar o texto para a rede neural.
-3. `3_modelo_e_treino.py`: Onde criamos a arquitetura da rede e realizamos o treinamento.
-4. `4_testar_ia.py`: Script para você testar a sua IA treinada com novas frases.
-5. `comentarios_videos.csv`: Nosso dataset real de treinamento.
+2. `2_hello_world_ia.py`: O "Hello World" das redes neurais. Ensinando uma porta lógica OR para entender como a IA aprende do zero.
+3. `3_preparacao_dados.py`: Como carregar o CSV e preparar o texto para a rede neural.
+4. `4_modelo_e_treino.py`: Onde criamos a arquitetura da rede e realizamos o treinamento.
+5. `5_testar_ia.py`: Script para você testar a sua IA treinada com novas frases.
+6. `comentarios_videos.csv`: Nosso dataset real de treinamento.
 
 ## 🎯 O que aprendemos:
 
@@ -32,7 +33,7 @@ pip install torch pandas
 
 ## 🚀 Desafio Prático
 
-Tente abrir o arquivo `comentarios_videos.csv` e adicionar mais 10 frases (5 positivas e 5 negativas). Depois, rode o script `3_modelo_e_treino.py` novamente e veja se a precisão da sua IA no script `4_testar_ia.py` melhorou!
+Tente abrir o arquivo `comentarios_videos.csv` e adicionar mais 10 frases (5 positivas e 5 negativas). Depois, rode o script `4_modelo_e_treino.py` novamente e veja se a precisão da sua IA no script `5_testar_ia.py` melhorou!
 
 ---
 
