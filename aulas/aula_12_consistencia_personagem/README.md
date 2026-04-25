@@ -15,6 +15,16 @@ git clone https://github.com/ltdrdata/ComfyUI-Manager.git
 O PuLID depende da biblioteca `insightface`. No terminal, dentro da pasta do ComfyUI e com seu **venv ativado**, rode:
 
 ```bash
+# 1. Criar o ambiente virtual
+python -m venv venv
+
+# 2. Ativar o ambiente virtual no Windows
+.\venv\Scripts\activate
+
+# (Ou no Linux/macOS)
+source venv/bin/activate
+
+# 3. Instalar as bibliotecas requeridas
 pip install insightface
 ```
 
